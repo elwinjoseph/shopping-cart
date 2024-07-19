@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/cart.dart';
+import 'package:get/get.dart';
+import 'package:shopping_cart/homecontroller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const My_cart(),
+      getPages: AppPages.pages,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopping_cart/cart2.dart';
 import 'package:shopping_cart/homecontroller.dart';
 
 class My_cart extends StatefulWidget {
@@ -76,10 +77,68 @@ class _My_cartState extends State<My_cart> {
                     style: TextStyle(
                         color: Colors.green, fontWeight: FontWeight.bold),
                   ),
-                  subtitle: const Text(
-                    '500.0',
+                  subtitle: const Column(
+                    children: [
+                      Text(
+                        '250 g',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '500.0₹',
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            controller.decrement();
+                          },
+                          child: const Text('-')),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Obx(() => Text(
+                            '${controller.initialCount}',
+                          )),
+                      TextButton(
+                          onPressed: () {
+                            controller.increment();
+                          },
+                          child: const Text('+')),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  leading: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxHeight: 100,
+                        maxWidth: 100,
+                      ),
+                      child: Image.network(
+                          'https://www.colombianbrew.in/cdn/shop/files/WhatsAppImage2023-11-22at1.52.07PM.jpg?v=1700641386')),
+                  title: const Text(
+                    'Tea',
                     style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
+                        color: Colors.green, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: const Column(
+                    children: [
+                      Text(
+                        '300 g',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '250.0₹',
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold),
+                      )
+                    ],
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -104,7 +163,12 @@ class _My_cartState extends State<My_cart> {
                   ),
                 )
               ],
-            ))
+            )),
+            TextButton(
+                onPressed: () {
+                  Get.to(const My_cart2());
+                },
+                child: const Text('next'))
           ],
         ),
       ),
