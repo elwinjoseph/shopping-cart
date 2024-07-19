@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopping_cart/cart2.dart';
+
 import 'package:shopping_cart/homecontroller.dart';
+import 'package:shopping_cart/togel.dart';
 
 class My_cart extends StatefulWidget {
   const My_cart({super.key});
@@ -166,7 +167,7 @@ class _My_cartState extends State<My_cart> {
             )),
             TextButton(
                 onPressed: () {
-                  Get.to(const My_cart2());
+                  Get.to(const ToggleButtonPage());
                 },
                 child: const Text('next'))
           ],
